@@ -14,6 +14,14 @@ class Oystercard
     @balance += amount.to_i
   end
 
+  def deduct(amount)
+    @balance -= amount.to_i
+  end
+
+  def touch_in
+    true
+  end
+
   private
 
   def limit?(amount)
