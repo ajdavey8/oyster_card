@@ -4,23 +4,29 @@ class Journey
   PENALTY_FARE = 6
 
   attr_reader :journeys
-  attr_accessor :entry_station
+  attr_accessor :entry_station, :exit_station
 
   def initialize
-    @journeys = []
     @entry_station = nil
+    @exit_station = nil
   end
 
   def in_journey?
     !@entry_station.nil?
   end
 
-  def adding_journey(exit_station)
-    @journeys << { entry: @entry_station, exit: exit_station }
+  def fare
+    minimum_fare + penalty_fare
   end
 
-  def fare
-    return PENALTY_FARE if @journeys.last[:entry].nil? || @journeys.last[:exit].nil?
+  private
+
+  def minimum_fare
     MINIMUM
   end
+
+  def penalty_fare
+    entry_station && exit_station ? 0 : PENALTY_FARE
+  end
+
 end
