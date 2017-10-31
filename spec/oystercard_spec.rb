@@ -43,4 +43,10 @@ describe Oystercard do
   it 'raises an error if touched in with insufficent funds' do
     expect { oystercard.touch_in}.to raise_error "Sorry insufficent funds for journey"
   end
+
+  it "when touch out reduce balance by minimum fare" do
+    oystercard_with_money.touch_in
+    expect {oystercard_with_money.touch_out}.to change{oystercard_with_money.balance}.by(-Oystercard::MINIMUM)
+  end
+
 end

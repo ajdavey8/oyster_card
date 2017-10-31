@@ -16,18 +16,15 @@ class Oystercard
     @balance += amount.to_i
   end
 
-  def deduct(amount)
-    @balance -= amount.to_i
-  end
-
   def touch_in
     raise "Sorry insufficent funds for journey"  if sufficent_funds?
     raise "Can't touch in if in journey" if in_journey?
     @in_journey = true
   end
 
-  def touch_out
+  def touch_out(fare = MINIMUM)
     raise "Can't touch out if not touched in" unless in_journey?
+    deduct(fare)
     @in_journey = false
   end
 
@@ -43,5 +40,9 @@ class Oystercard
 
   def sufficent_funds?
     @balance < MINIMUM
+  end
+
+  def deduct(amount)
+    @balance -= amount.to_i
   end
 end
