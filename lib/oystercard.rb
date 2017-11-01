@@ -1,4 +1,5 @@
 require './lib/journey'
+require './lib/journeylog'
 
 class Oystercard
 
@@ -9,7 +10,7 @@ class Oystercard
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
-    @journey_log = JourneyLog.new(nil)
+    @journey_log = JourneyLog.new
   end
 
   def top_up(amount)
@@ -25,7 +26,7 @@ class Oystercard
   end
 
   def touch_out(station)
-    touch_out_penalty if !@journey_log.in_journey?
+    touch_out_penalty unless !@journey_log.in_journey?
     deduct(@journey_log.get_fare)
     @journey_log.finish(station)
   end
@@ -50,7 +51,7 @@ class Oystercard
     @journey_log.finish(nil)
   end
 
-  def touch_out_penalty(station)
+  def touch_out_penalty
     @journey_log.start(nil)
     @journey_log.penalise
   end
