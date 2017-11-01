@@ -18,8 +18,8 @@
         1,
         null,
         1,
-        9,
-        9,
+        11,
+        11,
         null,
         null,
         1,
@@ -45,11 +45,16 @@
       "/Users/Andrew/Desktop/Projects/week_two/oyster_card/spec/journeylog_spec.rb": [
         1,
         null,
-        1,
-        2,
-        1,
-        1,
-        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -62,12 +67,17 @@
         null,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null,
         1,
+        0,
+        null,
+        null,
         1,
+        0,
         null,
         null,
         null
@@ -206,6 +216,6 @@
         null
       ]
     },
-    "timestamp": 1509482713
+    "timestamp": 1509548169
   }
 }

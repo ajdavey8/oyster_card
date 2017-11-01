@@ -7,9 +7,9 @@ class Oystercard
 
   attr_reader :balance, :journey, :journeys
 
-  def initialize(balance = DEFAULT_BALANCE, journey = Journey.new)
+  def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
-    @journey = journey
+    @journey = Journey.new(nil)
     @journeys = []
   end
 
@@ -22,7 +22,7 @@ class Oystercard
   def touch_in(station)
     raise 'Sorry insufficent funds for journey' if sufficent_funds?
     deduct(@journey.fare) if @journey.in_journey?
-    @journey.entry_station = station
+    @journey = Journey.new(station)
   end
 
   def touch_out(station)

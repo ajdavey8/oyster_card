@@ -6,13 +6,17 @@ class Journey
   attr_reader :journeys
   attr_accessor :entry_station, :exit_station
 
-  def initialize
-    @entry_station = nil
+  def initialize(entry_station)
+    @entry_station = entry_station
     @exit_station = nil
   end
 
   def in_journey?
     !@entry_station.nil?
+  end
+
+  def touch_out(station)
+    @exit_station = station
   end
 
   def fare
