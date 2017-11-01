@@ -3,10 +3,15 @@ require './lib/journeylog'
 
 class Oystercard
 
+  attr_reader :balance, :journey_log
+
   DEFAULT_BALANCE = 0
   LIMIT = 90
 
-  attr_reader :balance, :journey_log
+  @@messages = {
+    :max_limit => "Can't top-up over the balance limit of £#{LIMIT}",
+    :no_funds => "Sorry insufficent funds for journey",
+  }
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
@@ -14,19 +19,18 @@ class Oystercard
   end
 
   def top_up(amount)
-    error = "Can't top-up over the balance limit of £#{LIMIT}"
-    raise error if limit?(amount)
+    raise @@messages[:max_limit] if limit?(amount)
     @balance += amount.to_i
   end
 
   def touch_in(station)
-    raise 'Sorry insufficent funds for journey' if sufficent_funds?
+    raise @@messages[:no_funds] if sufficent_funds?
     touch_in_penalty if @journey_log.in_journey?
     @journey_log.start(station)
   end
 
   def touch_out(station)
-    touch_out_penalty unless !@journey_log.in_journey?
+    touch_out_penalty unless @journey_log.in_journey?
     deduct(@journey_log.get_fare)
     @journey_log.finish(station)
   end

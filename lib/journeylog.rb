@@ -2,6 +2,8 @@ require './lib/journey'
 
 class JourneyLog
 
+  attr_reader :current_journey
+
   def initialize
     @journeys = []
     @current_journey = nil
@@ -14,7 +16,6 @@ class JourneyLog
   def finish(exit_station)
     @current_journey.touch_out(exit_station)
     store_journey
-    return @journeys[-1].get_fare
   end
 
   def in_journey?
@@ -26,8 +27,7 @@ class JourneyLog
   end
 
   def get_fare
-    return @current_journey.penalty if !@current_journey.penalty
-    @current_journey.fare
+    @current_journey.calculate_fare
   end
 
   private
