@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/spec/journey_spec.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/spec/journey_spec.rb": [
         1,
         null,
         1,
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/lib/journey.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/lib/journey.rb": [
         1,
         null,
         1,
@@ -42,7 +42,7 @@
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/spec/journeylog_spec.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/spec/journeylog_spec.rb": [
         1,
         null,
         1,
@@ -52,27 +52,27 @@
         1,
         null,
         null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/lib/journeylog.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
         1,
         null,
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/lib/journeylog.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/spec/oystercard_spec.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/spec/oystercard_spec.rb": [
         1,
         null,
         1,
@@ -125,7 +125,7 @@
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/lib/oystercard.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/lib/oystercard.rb": [
         1,
         null,
         1,
@@ -179,7 +179,7 @@
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/spec/station_spec.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/spec/station_spec.rb": [
         1,
         null,
         1,
@@ -196,7 +196,7 @@
         null,
         null
       ],
-      "/Users/Allan/projects/makersAcademy/week2/oystercard-collabs/oyster_card-3110/lib/station.rb": [
+      "/Users/Andrew/Desktop/Projects/week_two/oyster_card/lib/station.rb": [
         1,
         1,
         1,
@@ -206,6 +206,6 @@
         null
       ]
     },
-    "timestamp": 1509475190
+    "timestamp": 1509482713
   }
 }

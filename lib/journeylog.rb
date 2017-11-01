@@ -6,8 +6,8 @@ class JourneyLog
     @journeys = []
   end
 
-  def start(entry_station) 
-    @hash = {entry: entry_station}
+  def start(entry_station)
+    @hash = { entry: entry_station }
   end
 
 end
