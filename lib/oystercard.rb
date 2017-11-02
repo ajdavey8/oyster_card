@@ -33,8 +33,6 @@ class Oystercard
     touch_out_penalty unless @journey_log.in_journey?
     deduct(@journey_log.get_fare(zone))
     @journey_log.finish(station, zone)
-    # @journey_log.get_zones_travelled
-
   end
 
   private
@@ -61,5 +59,4 @@ class Oystercard
     @journey_log.start(nil)
     @journey_log.penalise
   end
-
 end

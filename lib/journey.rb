@@ -5,7 +5,7 @@ class Journey
   MINIMUM = 1
   PENALTY_FARE = 6
 
-  attr_accessor :entry_station, :exit_station, :calculate_zones_travelled
+  attr_accessor :entry_station, :exit_station
 
   def initialize(entry_station, zone)
     self.touch_in(entry_station, zone)
@@ -32,12 +32,11 @@ class Journey
   def calculate_fare(zone)
     return @penalty if !!@penalty
     @fare = MINIMUM * calculate_zones_travelled(zone)
-
   end
+
+  private
 
   def calculate_zones_travelled(zone)
-     @entry_zone - zone
+    (@entry_zone - zone).abs
   end
-
-
 end

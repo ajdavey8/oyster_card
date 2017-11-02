@@ -2,7 +2,7 @@ require './lib/journey'
 
 class JourneyLog
 
-  attr_reader :current_journey, :get_zones_travelled
+  attr_reader :current_journey
 
   def initialize
     @journeys = []
@@ -30,15 +30,10 @@ class JourneyLog
     @current_journey.calculate_fare(zone)
   end
 
-  def get_zones_travelled
-    @current_journey.calculate_zones_travelled
-  end
-
   private
 
   def store_journey
     @journeys << @current_journey
     @current_journey = nil
   end
-
 end
