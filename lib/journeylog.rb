@@ -2,19 +2,19 @@ require './lib/journey'
 
 class JourneyLog
 
-  attr_reader :current_journey
+  attr_reader :current_journey, :get_zones_travelled
 
   def initialize
     @journeys = []
     @current_journey = nil
   end
 
-  def start(entry_station)
-    @current_journey = Journey.new(entry_station)
+  def start(station, zone)
+    @current_journey = Journey.new(station, zone)
   end
 
-  def finish(exit_station)
-    @current_journey.touch_out(exit_station)
+  def finish(station, zone)
+    @current_journey.touch_out(station, zone)
     store_journey
   end
 
@@ -26,8 +26,12 @@ class JourneyLog
     @current_journey.add_penalty
   end
 
-  def get_fare
-    @current_journey.calculate_fare
+  def get_fare(zone)
+    @current_journey.calculate_fare(zone)
+  end
+
+  def get_zones_travelled
+    @current_journey.calculate_zones_travelled
   end
 
   private

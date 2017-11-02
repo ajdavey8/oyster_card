@@ -1,33 +1,43 @@
+require './lib/station.rb'
+
 class Journey
 
   MINIMUM = 1
   PENALTY_FARE = 6
 
-  attr_accessor :entry_station, :exit_station
+  attr_accessor :entry_station, :exit_station, :calculate_zones_travelled
 
-  def initialize(entry_station)
+  def initialize(entry_station, zone)
+    self.touch_in(entry_station, zone)
     @exit_station = nil
     @fare = MINIMUM
     @penalty = nil
-    self.touch_in(entry_station)
   end
 
-  def touch_in(station)
-    @entry_station = station
+  def touch_in(station, zone)
+    @entry_station = Station.new(station, zone)
+    @entry_zone = zone
   end
 
-  def touch_out(station)
-    @exit_station = station
+  def touch_out(station, zone)
+    @exit_station = Station.new(station, zone)
+    @exit_zone = zone
   end
 
   def add_penalty
     @penalty = PENALTY_FARE
-    @fare = 0
+    @fare = MINIMUM * calculate_zones_travelled
   end
 
-  def calculate_fare
+  def calculate_fare(zone)
     return @penalty if !!@penalty
-    @fare
+    @fare = MINIMUM * calculate_zones_travelled(zone)
+
   end
+
+  def calculate_zones_travelled(zone)
+     @entry_zone - zone
+  end
+
 
 end

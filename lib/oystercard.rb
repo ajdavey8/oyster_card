@@ -23,16 +23,18 @@ class Oystercard
     @balance += amount.to_i
   end
 
-  def touch_in(station)
+  def touch_in(station, zone)
     raise @@messages[:no_funds] if sufficent_funds?
     touch_in_penalty if @journey_log.in_journey?
-    @journey_log.start(station)
+    @journey_log.start(station, zone)
   end
 
-  def touch_out(station)
+  def touch_out(station, zone)
     touch_out_penalty unless @journey_log.in_journey?
-    deduct(@journey_log.get_fare)
-    @journey_log.finish(station)
+    deduct(@journey_log.get_fare(zone))
+    @journey_log.finish(station, zone)
+    # @journey_log.get_zones_travelled
+
   end
 
   private
